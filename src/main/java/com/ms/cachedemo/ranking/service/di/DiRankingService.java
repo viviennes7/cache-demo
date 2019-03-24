@@ -1,8 +1,8 @@
 package com.ms.cachedemo.ranking.service.di;
 
 import com.ms.cachedemo.member.Member;
-import com.ms.cachedemo.ranking.service.RankingService;
 import com.ms.cachedemo.ranking.RankingType;
+import com.ms.cachedemo.ranking.service.RankingService;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
@@ -13,12 +13,12 @@ import java.util.concurrent.TimeUnit;
 
 import static java.lang.String.format;
 
-@Service("cacheRankingService")
-public class CacheRankingService implements RankingService {
+@Service("diRankingService")
+public class DiRankingService implements RankingService {
     private final ValueOperations<String, List<Member>> operations;
-    private RankingService rankingService;
+    private final RankingService rankingService;
 
-    public CacheRankingService(RedisTemplate redisTemplate, RankingService basicRankingService) {
+    public DiRankingService(RedisTemplate redisTemplate, RankingService basicRankingService) {
         this.operations = redisTemplate.opsForValue();
         this.rankingService = basicRankingService;
     }

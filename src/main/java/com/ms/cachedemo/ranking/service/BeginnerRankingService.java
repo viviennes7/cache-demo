@@ -3,6 +3,8 @@ package com.ms.cachedemo.ranking.service;
 import com.ms.cachedemo.member.Member;
 import com.ms.cachedemo.member.MemberRepository;
 import com.ms.cachedemo.ranking.RankingType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,7 @@ import static java.lang.String.format;
 
 @Service("beginnerRankingService")
 public class BeginnerRankingService implements RankingService {
+    private final Logger log = LoggerFactory.getLogger(getClass());
     private final MemberRepository memberRepository;
     private final ValueOperations<String, List<Member>> operations;
 
@@ -30,6 +33,7 @@ public class BeginnerRankingService implements RankingService {
         final List<Member> cachedRankingList = this.operations.get(key);
 
         if (CollectionUtils.isEmpty(cachedRankingList)) {
+            log.info("business logic execution");
             final List<Member> rankingList = this.memberRepository.findAll()
                     .stream()
 //                    .sorted() 랭킹을 정하는 로직이 있다고 가정
