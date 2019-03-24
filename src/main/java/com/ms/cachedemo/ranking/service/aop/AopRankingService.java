@@ -22,7 +22,7 @@ public class AopRankingService implements RankingService {
     }
 
     @Override
-    @Cacheable("ranking")
+    @Cacheable(RANKING_GETTING_KEY)
     public List<Member> getRanking(RankingType type) {
         log.info("business logic execution");
         return this.memberRepository.findAll()
