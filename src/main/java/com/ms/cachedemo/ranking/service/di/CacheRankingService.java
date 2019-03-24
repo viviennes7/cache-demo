@@ -14,11 +14,11 @@ import java.util.concurrent.TimeUnit;
 import static java.lang.String.format;
 
 @Service
-public class DiRankingService implements RankingService {
+public class CacheRankingService implements RankingService {
     private final ValueOperations<String, List<Member>> operations;
     private final RankingService rankingService;
 
-    public DiRankingService(RedisTemplate redisTemplate, RankingService basicRankingService) {
+    public CacheRankingService(RedisTemplate redisTemplate, RankingService basicRankingService) {
         this.operations = redisTemplate.opsForValue();
         this.rankingService = basicRankingService;
     }

@@ -10,15 +10,15 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class DiRankingServiceTest {
+public class CacheRankingServiceTest {
 
     @Autowired
-    private RankingService diRankingService;
+    private RankingService cacheRankingService;
 
     @Test
     public void getRanking() {
-        this.diRankingService.getRanking(RankingType.ALL);
-        this.diRankingService.getRanking(RankingType.ALL);
-        this.diRankingService.getRanking(RankingType.MONTH);
+        this.cacheRankingService.getRanking(RankingType.ALL);
+        this.cacheRankingService.getRanking(RankingType.ALL);
+        this.cacheRankingService.getRanking(RankingType.MONTH);
     }
 }
