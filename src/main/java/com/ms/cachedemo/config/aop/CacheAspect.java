@@ -20,7 +20,7 @@ import static java.util.stream.Collectors.joining;
 public class CacheAspect {
     private final ValueOperations<String, Object> operations;
 
-    public CacheAspect(RedisTemplate<String, Object> redisTemplate) {
+    public CacheAspect(RedisTemplate redisTemplate) {
         this.operations = redisTemplate.opsForValue();
     }
 
