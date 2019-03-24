@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 import static java.lang.String.format;
 
-@Service("beginnerRankingService")
+@Service
 public class BeginnerRankingService implements RankingService {
     private final Logger log = LoggerFactory.getLogger(getClass());
     private final MemberRepository memberRepository;

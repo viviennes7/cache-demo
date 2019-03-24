@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Service("aopRankingService")
+@Service
 public class AopRankingService implements RankingService {
     private final Logger log = LoggerFactory.getLogger(getClass());
     private final MemberRepository memberRepository;

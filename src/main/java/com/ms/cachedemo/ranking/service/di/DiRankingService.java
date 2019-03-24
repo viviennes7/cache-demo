@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 import static java.lang.String.format;
 
-@Service("diRankingService")
+@Service
 public class DiRankingService implements RankingService {
     private final ValueOperations<String, List<Member>> operations;
     private final RankingService rankingService;
